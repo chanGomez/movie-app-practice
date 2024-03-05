@@ -1,10 +1,14 @@
-const express = require("express"); //Dependency
-const app = express();// configuration
+const express = require("express");
+const app = express();
 const cors = require("cors")
+const moviesController = require("./controllers/movies")
 
 app.use(cors())
+app.use(express.json())
 
 //Routes
+app.use("/movies", moviesController)
+
 app.get("/", (req, res) =>{
     res.send("Welcome to Movie Saver")
 })
